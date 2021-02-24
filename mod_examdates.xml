@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.8" client="site" method="upgrade">
+	<name>ExamDates</name>
+	<creationDate>January 2021</creationDate>
+	<author>Marco Rensch</author>
+	<authorEmail>support@nx-designs.ch</authorEmail>
+	<authorUrl>http://www.nx-designs.ch</authorUrl>
+	<copyright>Copyright© 2021 by nx-designs</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<version>1.0</version>
+	<description>MOD_EXAMDATES_XML_DESCRIPTION</description>
+
+	<files>
+		<filename module="mod_examdates">mod_examdates.php</filename>
+		<folder>tmpl</folder>
+		<folder>language</folder>
+		<filename>mod_examdates.xml</filename>
+		<filename>helper.php</filename>
+	</files>
+
+	<!-- Update servers -->
+	<updateservers>
+		<server type="extension" priority="1" name="mod_examdates">https://updates.nx-designs.ch/mod_examdates.xml</server>
+	</updateservers>
+
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="ordering-dir"
+					type="radio"
+					label="MOD_EXAMDATES_ODIR"
+					description="MOD_EXAMDATES_ODIR_DES"
+					default="ASC"
+					class="btn-group"
+				>
+					<option value="ASC"></option>
+					<option value="DESC"></option>
+				</field>
+				<field name="module-class"
+					   type="textarea"
+					   rows="3"
+					   filter="safehtml"
+					   label="MOD_EXAMDATES_MODCLS" description="MOD_EXAMDATES_MODCLS_DES"
+				/>
+				<field name="module-inner-class"
+					   type="textarea"
+					   rows="3"
+					   filter="safehtml"
+					   label="MOD_EXAMDATES_MODICLS" description="MOD_EXAMDATES_MODICLS_DES"
+				/>
+
+				<field name="table-class"
+					   type="textarea"
+					   rows="3"
+					   filter="safehtml"
+					   label="MOD_EXAMDATES_TBLCLS" description="MOD_EXAMDATES_TBLCLS_DES"
+				/>
+				<field name="col-label-class"
+					   type="textarea"
+					   rows="3"
+					   filter="safehtml"
+					   label="MOD_EXAMDATES_COLLABELCLS" description="MOD_EXAMDATES_COLLABELCLS_DES"
+				/>
+				<field name="label-tag"
+						type="list"
+						default="h4"
+					   label="MOD_EXAMDATES_LABELTYPE" description="MOD_EXAMDATES_LABELTYPE_DES"
+				>
+					<option value="h1"></option>
+					<option value="h2"></option>
+					<option value="h3"></option>
+					<option value="h4"></option>
+					<option value="h5"></option>
+					<option value="h5"></option>
+					<option value="h6"></option>
+					<option value="p"></option>
+					<option value="span"></option>
+					<option value="div"></option>
+				</field>
+				<field name="col-till-class"
+					   type="textarea"
+					   rows="3"
+					   filter="safehtml"
+					   label="MOD_EXAMDATES_COLTILLCLS" description="MOD_EXAMDATES_COLTILLCLS_DES"
+				/>
+				<field name="till-tag"
+					   type="list"
+					   default="div"
+					   label="MOD_EXAMDATES_TILLTYPE" description="MOD_EXAMDATES_TILLTYPE_DES"
+				>
+					<option value="h1"></option>
+					<option value="h2"></option>
+					<option value="h3"></option>
+					<option value="h4"></option>
+					<option value="h5"></option>
+					<option value="h5"></option>
+					<option value="h6"></option>
+					<option value="p"></option>
+					<option value="span"></option>
+					<option value="div"></option>
+				</field>
+				<field name="deadline-class"
+					   type="textarea"
+					   rows="3"
+					   filter="safehtml"
+					   label="MOD_EXAMDATES_TILLCLS" description="MOD_EXAMDATES_TILLCLS_DES"
+				/>
+
+				<field name="col-dates-class"
+					   type="textarea"
+					   rows="3"
+					   filter="safehtml"
+					   label="MOD_EXAMDATES_COLDATESCLS" description="MOD_EXAMDATES_COLDATESCLS_DES"
+				/>
+
+				<field name="dates-list-class"
+					   type="textarea"
+					   rows="3"
+					   filter="safehtml"
+					   label="MOD_EXAMDATES_DATESLISTCLS" description="MOD_EXAMDATES_DATESLISTCLS_DES"
+				/>
+
+				<field name="dates-listelement-class"
+					   type="textarea"
+					   rows="3"
+					   filter="safehtml"
+					   label="MOD_EXAMDATES_DATESLISTELEMENTCLS" description="MOD_EXAMDATES_DATESLISTELEMENTCLS_DES"
+				/>
+
+				<field name="show-time"
+					   type="list"
+					   default="dedicated"
+					   label="MOD_EXAMDATES_STIME" description="MOD_EXAMDATES_STIME_DES"
+				>
+					<option value="never"></option>
+					<option value="always"></option>
+					<option value="dedicated"></option>
+				</field>
+
+			</fieldset>
+			<fieldset name="text_before">
+				<field name="label-label" type="text" filter="safehtml" label="MOD_EXAMDATES_LABEL_COLTITLE" />
+				<field name="deadline-label" type="text" filter="safehtml" label="MOD_EXAMDATES_DEADLINE_COLTITLE" />
+				<field name="dates-label" type="text" filter="safehtml" label="MOD_EXAMDATES_DATES_COLTITLE" />
+				<field name="text-before" type="editor" filter="safehtml" label="MOD_EXAMDATES_TXTBEFORE" description="MOD_EXAMDATES_TXTBEFORE_DES" />
+			</fieldset>
+			<fieldset name="date_formats">
+				<field name="format-deadline"
+						type="text"
+						default="d. F Y"
+					   	label="MOD_EXAMDATES_FORMAT_DL" description="MOD_EXAMDATES_FORMAT_DL_DES"
+				/>
+				<field name="format-exam-date"
+					   type="text"
+					   default="d.m.Y H:i"
+					   label="MOD_EXAMDATES_FORMAT_DATE" description="MOD_EXAMDATES_FORMAT_DATE_DES"
+				/>
+			</fieldset>
+			<fieldset
+					name="advanced">
+				<field name="load_uikit"
+					   type="radio"
+					   default="0"
+					   class="btn-group btn-group-yesno"
+					   label="Load UIkit"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+						name="moduleclass_sfx"
+						type="textarea"
+					   rows="3"
+						label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+						description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>
