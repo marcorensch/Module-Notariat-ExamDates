@@ -51,6 +51,16 @@ if($items):
                     ?>
 
                     <tr>
+                        <?php
+                        $label = '';
+                        $labelArr = explode(' ', $item->label);
+                        $i=0;
+                        foreach ($labelArr as $part){
+                            $label .= Text::_($part);
+                            if($i < count($labelArr)){ $label .= ' '; }
+                            $i++;
+                        }
+                        ?>
                         <?php echo '<td class="'.$lblcolcls.'"><'.$lblt.'>'.$item->label.'</'.$lblt.'></td>';?>
                         <?php echo '<td class="'.$deadcolcls.'"><'.$deadt.' class="'.$deadcls.'">'.$deadline.'</'.$deadt.'></td>';?>
                         <td>
