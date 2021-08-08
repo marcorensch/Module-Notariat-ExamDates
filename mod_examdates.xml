@@ -7,7 +7,7 @@
 	<authorUrl>http://www.nx-designs.ch</authorUrl>
 	<copyright>Copyright© 2021 by nx-designs</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<version>1.0</version>
+	<version>1.1</version>
 	<description>MOD_EXAMDATES_XML_DESCRIPTION</description>
 
 	<files>
@@ -26,8 +26,7 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field
-					name="ordering-dir"
+				<field name="ordering-dir"
 					type="radio"
 					label="MOD_EXAMDATES_ODIR"
 					description="MOD_EXAMDATES_ODIR_DES"
@@ -139,12 +138,15 @@
 				</field>
 
 			</fieldset>
+			<!--
+			NOW MULTILANGUAGE
 			<fieldset name="text_before">
 				<field name="label-label" type="text" filter="safehtml" label="MOD_EXAMDATES_LABEL_COLTITLE" />
 				<field name="deadline-label" type="text" filter="safehtml" label="MOD_EXAMDATES_DEADLINE_COLTITLE" />
 				<field name="dates-label" type="text" filter="safehtml" label="MOD_EXAMDATES_DATES_COLTITLE" />
 				<field name="text-before" type="editor" filter="safehtml" label="MOD_EXAMDATES_TXTBEFORE" description="MOD_EXAMDATES_TXTBEFORE_DES" />
 			</fieldset>
+			-->
 			<fieldset name="date_formats">
 				<field name="format-deadline"
 						type="text"
@@ -157,8 +159,7 @@
 					   label="MOD_EXAMDATES_FORMAT_DATE" description="MOD_EXAMDATES_FORMAT_DATE_DES"
 				/>
 			</fieldset>
-			<fieldset
-					name="advanced">
+			<fieldset name="advanced">
 				<field name="load_uikit"
 					   type="radio"
 					   default="0"
@@ -168,8 +169,7 @@
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				<field
-						name="moduleclass_sfx"
+				<field name="moduleclass_sfx"
 						type="textarea"
 					   rows="3"
 						label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"

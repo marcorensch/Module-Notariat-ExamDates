@@ -32,17 +32,15 @@ if($items):
 
     <div class="<?php echo htmlspecialchars($params->get('module-class',''));?>">
         <div class="<?php echo htmlspecialchars($params->get('module-inner-class',''));?>">
-            <?php if(strlen($params->get('text-before',''))):?>
-                <div class="nx-description-text">
-                    <?php echo HTMLHelper::_('content.prepare', $params->get('text-before'));?>
-                </div>
-            <?php endif; ?>
+            <div class="uk-text-lead uk-margin nx-description-text">
+                <?php echo Text::_('MOD_EXAMDATES_EXAM_TXT_BEFORE');?>
+            </div>
             <table class="<?php echo $tblClasses;?>">
                 <thead>
                 <tr>
-                    <th class="nx-tbl-header header-for-label"><?php echo htmlspecialchars($params->get('label-label',''));?></th>
-                    <th class="nx-tbl-header header-for-deadline"><?php echo htmlspecialchars($params->get('deadline-label',''));?></th>
-                    <th class="nx-tbl-header header-for-dates"><?php echo htmlspecialchars($params->get('dates-label',''));?></th>
+                    <th class="nx-tbl-header header-for-label"><?php echo Text::_('MOD_EXAMDATES_EXAM_LABEL');?></th>
+                    <th class="nx-tbl-header header-for-deadline"><?php echo Text::_('MOD_EXAMDATES_REG_DEADLINE');?></th>
+                    <th class="nx-tbl-header header-for-dates"><?php echo Text::_('MOD_EXAMDATES_EXAM_DATES');?></th>
                 </tr>
                 </thead>
                 <tbody>
