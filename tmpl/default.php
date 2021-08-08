@@ -86,7 +86,18 @@ if($items):
                                 echo '</ul>';
                             }
                             if(strlen($item->examdatesnotice)){
-                                echo HTMLHelper::_('content.prepare',$item->examdatesnotice);
+                                $originalTxt = $item->examdatesnotice;
+                                if(strpos($originalTxt,'_')){
+                                    $possible = str_replace('_','',$originalTxt);
+                                    if(ctype_upper($possible)){
+                                        $text = Text::_($originalTxt);
+                                    }else{
+                                        $text = $originalTxt;
+                                    }
+                                }else{
+                                        $text = $originalTxt;
+                                }
+                                echo HTMLHelper::_('content.prepare',$text);
                             }
                             ?>
 
