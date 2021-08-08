@@ -56,7 +56,15 @@ if($items):
                         $labelArr = explode(' ', $item->label);
                         $i=0;
                         foreach ($labelArr as $part){
-                            $label .= Text::_($part);
+                            $original = $part;
+                            $part = strtoupper($part);
+                            $key = str_replace(['Ä','Ö','Ü'],'',$part);
+                            $value = Text::_($key);
+                            if($key !== $value){
+                                $label .= $value;
+                            }else{
+                                $label .= $original;
+                            }
                             if($i < count($labelArr)){ $label .= ' '; }
                             $i++;
                         }
