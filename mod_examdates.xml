@@ -127,16 +127,6 @@
 					   label="MOD_EXAMDATES_DATESLISTELEMENTCLS" description="MOD_EXAMDATES_DATESLISTELEMENTCLS_DES"
 				/>
 
-				<field name="show-time"
-					   type="list"
-					   default="dedicated"
-					   label="MOD_EXAMDATES_STIME" description="MOD_EXAMDATES_STIME_DES"
-				>
-					<option value="never"></option>
-					<option value="always"></option>
-					<option value="dedicated"></option>
-				</field>
-
 			</fieldset>
 			<!--
 			NOW MULTILANGUAGE
@@ -149,15 +139,41 @@
 			-->
 			<fieldset name="date_formats">
 				<field name="format-deadline"
-						type="text"
-						default="d. F Y"
+						type="list"
+						default="DATE_FORMAT_LC3"
 					   	label="MOD_EXAMDATES_FORMAT_DL" description="MOD_EXAMDATES_FORMAT_DL_DES"
-				/>
+				>
+					<option value="DATE_FORMAT_LC">l, d F Y</option>
+					<option value="DATE_FORMAT_LC1">l, d F Y</option>
+					<option value="DATE_FORMAT_LC2">l, d F Y H:i</option>
+					<option value="DATE_FORMAT_LC3">d F Y</option>
+					<option value="DATE_FORMAT_LC4">Y-m-d</option>
+					<option value="DATE_FORMAT_LC5">Y-m-d H:i</option>
+					<option value="DATE_FORMAT_LC6">Y-m-d H:i:s</option>
+					<option value="DATE_FORMAT_JS1">y-m-d</option>
+					<option value="DATE_FORMAT_CALENDAR_DATE">%Y-%m-%d</option>
+					<option value="DATE_FORMAT_CALENDAR_DATETIME">%Y-%m-%d %H:%M:%S</option>
+					<option value="DATE_FORMAT_FILTER_DATE">Y-m-d</option>
+					<option value="DATE_FORMAT_FILTER_DATETIME">Y-m-d H:i:s</option>
+				</field>
 				<field name="format-exam-date"
-					   type="text"
-					   default="d.m.Y H:i"
+					   type="list"
+					   default="DATE_FORMAT_LC3"
 					   label="MOD_EXAMDATES_FORMAT_DATE" description="MOD_EXAMDATES_FORMAT_DATE_DES"
-				/>
+				>
+					<option value="DATE_FORMAT_LC">l, d F Y</option>
+					<option value="DATE_FORMAT_LC1">l, d F Y</option>
+					<option value="DATE_FORMAT_LC2">l, d F Y H:i</option>
+					<option value="DATE_FORMAT_LC3">d F Y</option>
+					<option value="DATE_FORMAT_LC4">Y-m-d</option>
+					<option value="DATE_FORMAT_LC5">Y-m-d H:i</option>
+					<option value="DATE_FORMAT_LC6">Y-m-d H:i:s</option>
+					<option value="DATE_FORMAT_JS1">y-m-d</option>
+					<option value="DATE_FORMAT_CALENDAR_DATE">%Y-%m-%d</option>
+					<option value="DATE_FORMAT_CALENDAR_DATETIME">%Y-%m-%d %H:%M:%S</option>
+					<option value="DATE_FORMAT_FILTER_DATE">Y-m-d</option>
+					<option value="DATE_FORMAT_FILTER_DATETIME">Y-m-d H:i:s</option>
+				</field>
 			</fieldset>
 			<fieldset name="advanced">
 				<field name="load_uikit"

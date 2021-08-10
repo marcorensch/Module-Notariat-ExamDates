@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="a0bd343e-9f06-4739-be4c-a0602bf00133" name="NotarExamsModule" url="http://notar.local">
+        <fileTransfer mountedRoot="$USER_HOME$/Sites/notar" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>

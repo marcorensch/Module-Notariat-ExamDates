@@ -25,7 +25,12 @@ $deadcolcls = $params->get('col-till-class','');
 $datesListCls= $params->get('dates-list-class','');
 $datesListElCls= $params->get('dates-listelement-class','');
 
+$deadline_format = $params->get('format-deadline','DATE_FORMAT_LC3');
+$exam_date_format = $params->get('format-exam-date','DATE_FORMAT_LC3');
+
 $timezone = Factory::getUser()->getTimezone();
+
+$specialChars = array('ä','ö','ü','Ä','Ö','Ü');
 
 if($items):
 ?>
@@ -47,7 +52,8 @@ if($items):
                 <?php foreach ($items as $item):
                     $deadlinetime = new Date($item->deadline);
                     $deadlinetime->setTimezone($timezone);
-                    $deadline = $deadlinetime->format(Text::_(htmlspecialchars($params->get('format-deadline','d. F Y'))));
+                    //$deadline = $deadlinetime->format(Text::_(htmlspecialchars($params->get('format-deadline','d. F Y'))));
+                    $deadline = HtmlHelper::date($deadlinetime, Text::_($deadline_format));
                     ?>
 
                     <tr>
@@ -57,8 +63,8 @@ if($items):
                         $i=0;
                         foreach ($labelArr as $part){
                             $original = $part;
-                            $part = strtoupper($part);
-                            $key = str_replace(['Ä','Ö','Ü'],'',$part);
+                            $partUpper = strtoupper($part);
+                            $key = str_replace($specialChars, '', $partUpper);
                             $value = Text::_($key);
                             if($key !== $value){
                                 $label .= $value;
@@ -69,7 +75,7 @@ if($items):
                             $i++;
                         }
                         ?>
-                        <?php echo '<td class="'.$lblcolcls.'"><'.$lblt.'>'.$item->label.'</'.$lblt.'></td>';?>
+                        <?php echo '<td class="'.$lblcolcls.'"><'.$lblt.'>'.$label.'</'.$lblt.'></td>';?>
                         <?php echo '<td class="'.$deadcolcls.'"><'.$deadt.' class="'.$deadcls.'">'.$deadline.'</'.$deadt.'></td>';?>
                         <td>
                             <?php
@@ -79,8 +85,10 @@ if($items):
 
                                     $date = new Date($exam['date']);
                                     $date->setTimezone($timezone);
-                                    $user_date = $date->format(Text::_(htmlspecialchars($params->get('format-exam-date','d.m.Y H:i'))));
+                                    //$user_date = $date->format(Text::_(htmlspecialchars($params->get('format-exam-date','d.m.Y H:i'))));
+                                    $exam_date = HtmlHelper::date($date, Text::_($exam_date_format));
 
+                                    /* Old Way
                                     switch($params->get('show-time','always')){
                                         case 'always':
                                             $dateHtml = $user_date;
@@ -98,8 +106,9 @@ if($items):
                                                 $dateHtml = $date[0];
                                             }
                                     }
+                                    */
 
-                                    echo '<li class="'.$datesListElCls.'">' . $dateHtml . '</li>';
+                                    echo '<li class="'.$datesListElCls.'">' . $exam_date . '</li>';
                                 };
                                 echo '</ul>';
                             }
