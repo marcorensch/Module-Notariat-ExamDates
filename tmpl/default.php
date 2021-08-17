@@ -58,21 +58,14 @@ if($items):
 
                     <tr>
                         <?php
-                        $label = '';
-                        $labelArr = explode(' ', $item->label);
-                        $i=0;
-                        foreach ($labelArr as $part){
-                            $original = $part;
-                            $partUpper = strtoupper($part);
+                        if(strpos($item->label,';')) {
+                            $labelArr = explode(';', $item->label);
+                            $partUpper = strtoupper($labelArr[0]);
+                            $year = $labelArr[1];
                             $key = str_replace($specialChars, '', $partUpper);
-                            $value = Text::_($key);
-                            if($key !== $value){
-                                $label .= $value;
-                            }else{
-                                $label .= $original;
-                            }
-                            if($i < count($labelArr)){ $label .= ' '; }
-                            $i++;
+                            $label = Text::sprintf($key,$year);
+                        }else{
+                            $label = $item->label;
                         }
                         ?>
                         <?php echo '<td class="'.$lblcolcls.'"><'.$lblt.'>'.$label.'</'.$lblt.'></td>';?>
